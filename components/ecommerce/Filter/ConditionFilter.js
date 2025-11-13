@@ -1,20 +1,20 @@
-import { useRouter } from "next/router";
+'use client';
+
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { updateProductFilters } from "../../../redux/action/productFiltersAction";
 import CheckBox from "./Checkbox";
 
 const ContitionFilter = ({ updateProductFilters }) => {
-    // console.log(updateProductFilters);
-
     const [sizes, setSizeCheckbox] = useState([
         { value: "new" },
         { value: "refurbished " },
         { value: "used" },
     ]);
 
-    const Router = useRouter();
-    const searchTerm = Router.query.search;
+    const searchParams = useSearchParams();
+    const searchTerm = searchParams.get('search');
 
     const [selectedSizes, setSizes] = useState([]);
 
@@ -24,7 +24,7 @@ const ContitionFilter = ({ updateProductFilters }) => {
         };
 
         updateProductFilters(filters);
-    }, [sizes, searchTerm]);
+    }, [selectedSizes, searchTerm, updateProductFilters]);
 
     const handleCheckBox = (
         event,

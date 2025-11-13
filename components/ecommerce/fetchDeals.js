@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from "react";
 import { server } from "../../config/index";
 import Deals1 from "../elements/Deals1";

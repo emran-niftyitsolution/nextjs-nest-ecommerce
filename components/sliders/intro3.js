@@ -1,3 +1,5 @@
+'use client';
+
 import Link from "next/link";
 import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import "swiper/css/effect-fade";

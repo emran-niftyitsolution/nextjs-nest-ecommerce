@@ -1,14 +1,14 @@
-import { useRouter } from "next/router";
+'use client';
+
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 // import InputRange from "react-input-range";
 import { connect } from "react-redux";
 import { updateProductFilters } from "../../../redux/action/productFiltersAction";
 
 const PriceRange = ({ updateProductFilters }) => {
-    // console.log(updateProductFilters);
-
-    const Router = useRouter();
-    const searchTerm = Router.query.search;
+    const searchParams = useSearchParams();
+    const searchTerm = searchParams.get('search');
 
     const [price, setPrice] = useState({ value: { min: 0, max: 500 } });
     const [active, setActive] = useState(0);
@@ -19,7 +19,7 @@ const PriceRange = ({ updateProductFilters }) => {
         };
 
         updateProductFilters(filters);
-    }, [price, searchTerm]);
+    }, [price, searchTerm, updateProductFilters]);
 
     const data = [
         {

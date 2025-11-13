@@ -1,3 +1,5 @@
+'use client';
+
 import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";

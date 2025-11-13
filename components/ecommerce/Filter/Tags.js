@@ -1,10 +1,10 @@
-import { useRouter } from "next/router";
+'use client';
+
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { updateProductFilters } from "../../../redux/action/productFiltersAction";
 
 const Tags = ({ updateProductFilters }) => {
-    const router = useRouter();
     const tags = [
         { value: "" },
         { value: "snack" },
@@ -22,7 +22,7 @@ const Tags = ({ updateProductFilters }) => {
         };
 
         updateProductFilters(filters);
-    }, [selectedTags]);
+    }, [selectedTags, updateProductFilters]);
 
     const handleClick = (i, target) => {
         setTags(target);

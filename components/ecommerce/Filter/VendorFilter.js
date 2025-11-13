@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+'use client';
+
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { updateProductFilters } from "../../../redux/action/productFiltersAction";
@@ -19,8 +21,8 @@ const VendorFilter = ({ updateProductFilters }) => {
         ]
     );
 
-    const Router = useRouter();
-    const searchTerm = Router.query.search;
+    const searchParams = useSearchParams();
+    const searchTerm = searchParams.get('search');
 
     const [selectedVendor, setVendor] = useState([]);
 
@@ -30,7 +32,7 @@ const VendorFilter = ({ updateProductFilters }) => {
         };
 
         updateProductFilters(filters);
-    }, [sizes, searchTerm]);
+    }, [selectedVendor, searchTerm, updateProductFilters]);
 
     const handleCheckBox = (event, filters, updatefilters, selectFilter, text) => {
         const value = event.target.value;

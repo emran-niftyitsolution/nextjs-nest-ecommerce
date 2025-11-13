@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from "react";
 import { server } from "../../config/index";
 import Cat1Tab from '../elements/FeaturedTab';

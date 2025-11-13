@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from "react";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";

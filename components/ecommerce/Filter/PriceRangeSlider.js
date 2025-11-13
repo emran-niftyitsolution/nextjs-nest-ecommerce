@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+'use client';
+
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { updateProductFilters } from "../../../redux/action/productFiltersAction";
@@ -8,14 +10,10 @@ import 'rc-slider/assets/index.css';
 
 
 const PriceRangeSlider = ({ updateProductFilters }) => {
-    // console.log(updateProductFilters);
-
-    const Router = useRouter();
-    const searchTerm = Router.query.search;
+    const searchParams = useSearchParams();
+    const searchTerm = searchParams.get('search');
 
     const [price, setPrice] = useState({ value: { min: 0, max: 500 } });
-
-    // console.log(price);
 
     useEffect(() => {
         const filters = {
@@ -23,7 +21,7 @@ const PriceRangeSlider = ({ updateProductFilters }) => {
         };
 
         updateProductFilters(filters);
-    }, [price, searchTerm]);
+    }, [price, searchTerm, updateProductFilters]);
 
     const [active, setActive] = useState(1);
     const handleActive = index => {

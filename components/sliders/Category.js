@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+'use client';
+
+import { useRouter } from "next/navigation";
 import { connect } from "react-redux";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -81,15 +83,8 @@ const CategorySlider = () => {
 
     const selectCategory = (e, category) => {
         e.preventDefault();
-        // removeSearchTerm();
         updateProductCategory(category);
-        router.push({
-            pathname: "/products",
-            query: {
-                cat: category //
-            }
-        });
-
+        router.push(`/products?cat=${encodeURIComponent(category)}`);
         console.log("Click");
     };
 

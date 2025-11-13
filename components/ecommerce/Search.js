@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+'use client';
+
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Search = () => {
@@ -7,12 +9,7 @@ const Search = () => {
 
     const handleSearch = () => {
         console.log("click");
-        router.push({
-            pathname: "/products",
-            query: {
-                search: searchTerm,
-            },
-        });
+        router.push(`/products?search=${encodeURIComponent(searchTerm)}`);
         setSearchTerm("");
     };
 

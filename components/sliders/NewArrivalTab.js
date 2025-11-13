@@ -1,3 +1,5 @@
+'use client';
+
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SingleProduct2 from "../ecommerce/SingleProduct2";

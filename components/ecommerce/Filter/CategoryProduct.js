@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+'use client';
+
+import { useRouter } from "next/navigation";
 import { connect } from "react-redux";
 import { updateProductCategory } from "../../../redux/action/productFiltersAction";
 
@@ -7,14 +9,8 @@ const CategoryProduct = ({ updateProductCategory }) => {
 
     const selectCategory = (e, category) => {
         e.preventDefault();
-        // removeSearchTerm();
         updateProductCategory(category);
-        router.push({
-            pathname: "/products",
-            query: {
-                cat: category, //
-            },
-        });
+        router.push(`/products?cat=${encodeURIComponent(category)}`);
     };
     return (
         <>
