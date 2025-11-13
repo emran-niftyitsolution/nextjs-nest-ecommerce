@@ -1,13 +1,12 @@
 import Link from "next/link";
-import SwiperCore, { Pagination } from "swiper";
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-SwiperCore.use([Pagination]);
 
 const VerticalSlider = () => {
     return (
         <>
             <Swiper
+                modules={[Pagination]}
                 slidesPerView={1}
                 spaceBetween={30}
                 direction={"vertical"}

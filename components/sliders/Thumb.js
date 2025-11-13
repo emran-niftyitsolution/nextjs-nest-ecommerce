@@ -1,9 +1,7 @@
 import { useState } from "react";
-import SwiperCore, { Navigation, Thumbs } from "swiper";
+import { Navigation, Thumbs } from "swiper/modules";
 import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-SwiperCore.use([Navigation, Thumbs]);
 
 const ThumbSlider = ({ product }) => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -11,6 +9,7 @@ const ThumbSlider = ({ product }) => {
     return (
         <div>
             <Swiper
+                modules={[Navigation, Thumbs]}
                 style={{
                     "--swiper-navigation-color": "#fff",
                     "--swiper-pagination-color": "#fff",

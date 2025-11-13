@@ -1,10 +1,8 @@
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
-import SwiperCore, { Autoplay, Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { updateProductCategory } from "./../../redux/action/productFiltersAction";
-
-SwiperCore.use([Navigation, Autoplay]);
 const data = [
     {
         id: 1,
@@ -98,6 +96,7 @@ const CategorySlider = () => {
     return (
         <>
             <Swiper
+                modules={[Navigation, Autoplay]}
                 autoplay={true}
                 navigation={{
                     prevEl: ".custom_prev_ct1",

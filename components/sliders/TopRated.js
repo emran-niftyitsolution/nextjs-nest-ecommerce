@@ -1,9 +1,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import SwiperCore, { Navigation } from "swiper";
 import { fetchByCatagory } from "../../redux/action/product";
-
-SwiperCore.use([Navigation]);
 
 const TopRatedSlider = () => {
     const [discount, setDiscount] = useState([]);

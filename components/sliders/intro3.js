@@ -1,15 +1,14 @@
 import Link from "next/link";
-import SwiperCore, { EffectFade, Navigation, Pagination } from "swiper";
+import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-SwiperCore.use([Navigation, Pagination, EffectFade]);
 
 const Intro3 = () => {
     return (
         <>
             <Swiper
+                modules={[Navigation, Pagination, EffectFade]}
                 slidesPerView={1}
                 spaceBetween={0}
                 effect={"fade"}

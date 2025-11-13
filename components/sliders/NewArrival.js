@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import SwiperCore, { Navigation } from "swiper";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { server } from "../../config/index";
 import SingleProduct from "./../ecommerce/SingleProduct";
-
-SwiperCore.use([Navigation]);
 
 const NewArrival = () => {
     const [newArrival, setNewArrival] = useState([]);
@@ -28,6 +26,7 @@ const NewArrival = () => {
     return (
         <>
             <Swiper
+                modules={[Navigation]}
                 spaceBetween={15}
                 
                 navigation={{

@@ -1,9 +1,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import SwiperCore, { Navigation } from "swiper";
 import { server } from "../../config/index";
-
-SwiperCore.use([Navigation]);
 
 const NewArrival2 = () => {
     const [newArrival, setNewArrival] = useState([]);

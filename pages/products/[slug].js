@@ -5,6 +5,16 @@ import { server } from "../../config/index";
 import { findProductIndex } from "../../util/util";
 
 const ProductId = ({ product }) => {
+    if (!product) {
+        return (
+            <Layout parent="Home" sub="Shop" subChild="Product Not Found">
+                <div className="container">
+                    <h1>Product Not Found</h1>
+                </div>
+            </Layout>
+        );
+    }
+
     return (
         <>
         <Layout parent="Home" sub="Shop" subChild={product.title}>
@@ -16,17 +26,32 @@ const ProductId = ({ product }) => {
     );
 };
 
-
-
-ProductId.getInitialProps = async (params) => {
+export async function getServerSideProps(context) {
+    const { slug } = context.params;
     
-    const request = await fetch(`${server}/static/product.json`);
-    const data = await request.json();
+    try {
+        const request = await fetch(`${server}/static/product.json`);
+        const data = await request.json();
 
-    const index = findProductIndex(data, params.query.slug);
-    // console.log(params);
+        const index = findProductIndex(data, slug);
 
-    return { product: data[index] };
-};
+        if (index === -1) {
+            return {
+                notFound: true,
+            };
+        }
+
+        return {
+            props: {
+                product: data[index],
+            },
+        };
+    } catch (error) {
+        console.error('Error fetching product:', error);
+        return {
+            notFound: true,
+        };
+    }
+}
 
 export default ProductId;

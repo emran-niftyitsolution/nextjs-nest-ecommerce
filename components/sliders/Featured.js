@@ -1,14 +1,13 @@
-import SwiperCore, { Navigation } from "swiper";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SingleProduct2 from "./../ecommerce/SingleProduct2";
-
-SwiperCore.use([Navigation]);
 
 const FeaturedSlider = ({ products }) => {
     
     return (
         <>
             <Swiper
+                modules={[Navigation]}
                 spaceBetween={24}
                 grid={{
                     rows: 2

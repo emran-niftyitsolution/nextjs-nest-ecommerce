@@ -1,7 +1,4 @@
-import SwiperCore, { Navigation } from "swiper";
 import SingleProduct from "../ecommerce/SingleProduct";
-
-SwiperCore.use([Navigation]);
 
 const NewArrivalTab = ({ products }) => {
     const showItem= 10

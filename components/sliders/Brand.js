@@ -1,7 +1,5 @@
-import SwiperCore, { Navigation } from "swiper";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-SwiperCore.use([Navigation]);
 
 const BrandSlider = () => {
     var data = [
@@ -34,6 +32,7 @@ const BrandSlider = () => {
     return (
         <>
             <Swiper
+                modules={[Navigation]}
                 slidesPerView={6}
                 spaceBetween={20}
 

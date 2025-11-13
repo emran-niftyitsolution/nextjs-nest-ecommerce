@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import SwiperCore, { Navigation } from "swiper";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { fetchByCatagory } from "../../redux/action/product";
 import SingleProduct from "./../ecommerce/SingleProduct";
-
-SwiperCore.use([Navigation]);
 
 const DiscountSlider = () => {
     const [discount, setDiscount] = useState([]);
@@ -29,6 +27,7 @@ const DiscountSlider = () => {
     return (
         <>
             <Swiper
+                modules={[Navigation]}
                 slidesPerView={4}
                 spaceBetween={15}
                 

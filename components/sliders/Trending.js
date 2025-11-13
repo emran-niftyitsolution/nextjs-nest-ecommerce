@@ -1,13 +1,12 @@
-import SwiperCore, { Navigation } from "swiper";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SingleProduct2 from "./../ecommerce/SingleProduct2";
-
-SwiperCore.use([Navigation]);
 
 const TrendingSlider = ({products}) => {
     return (
         <>
             <Swiper
+                modules={[Navigation]}
                 slidesPerView={4}
                 spaceBetween={30}
                 

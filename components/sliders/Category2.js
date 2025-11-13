@@ -1,8 +1,6 @@
 import Link from "next/link";
-import SwiperCore, { Autoplay, Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-SwiperCore.use([Navigation, Autoplay]);
 
 const CategorySlider2 = () => {
     var data = [
@@ -65,6 +63,7 @@ const CategorySlider2 = () => {
     return (
         <>
             <Swiper
+                modules={[Navigation, Autoplay]}
                 slidesPerView={8}
                 spaceBetween={0}
                 autoplay={{
