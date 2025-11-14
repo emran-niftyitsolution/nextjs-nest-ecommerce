@@ -2,8 +2,21 @@ import storage from "../../util/localStorage";
 import { deleteProduct, findProductIndexById } from "../../util/util";
 import * as Types from "../constants/actionTypes";
 
-export default (state = [], action) => {
-    let index = null;
+interface CartProduct {
+    id: number | string;
+    quantity: number;
+    [key: string]: any;
+}
+
+type CartState = CartProduct[];
+
+interface CartAction {
+    type: string;
+    payload?: any;
+}
+
+const cartReducer = (state: CartState = [], action: CartAction): CartState => {
+    let index: number | null = null;
 
     switch (action.type) {
         case Types.INIT_LOCALSTORAGE:
@@ -59,3 +72,6 @@ export default (state = [], action) => {
             return state;
     }
 };
+
+export default cartReducer;
+

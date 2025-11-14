@@ -1,9 +1,25 @@
 import { deleteProduct, findProductIndexById } from "../../util/util";
 import * as Types from "../constants/actionTypes";
 
-// {items:[],filteredList:[]}
+interface Product {
+    id: number | string;
+    [key: string]: any;
+}
 
-export default (state = { items: [] }, action) => {
+interface ProductState {
+    items: Product[];
+}
+
+interface ProductAction {
+    type: string;
+    payload?: any;
+}
+
+const initialState: ProductState = {
+    items: []
+};
+
+const productReducer = (state = initialState, action: ProductAction): ProductState => {
     switch (action.type) {
         case Types.FETCHED_PRODUCT:
             return {
@@ -16,7 +32,7 @@ export default (state = { items: [] }, action) => {
                 ...state.items,
                 ...action.payload.products,
             ];
-            // console.log(mergeAllProducts);
+
             const limit =
                 action.payload.total &&
                 mergeAllProducts.length > action.payload.total
@@ -35,15 +51,27 @@ export default (state = { items: [] }, action) => {
             };
 
         case Types.DELETE_PRODUCT:
-            return deleteProduct(state, action.payload.id);
+            return {
+                ...state,
+                items: deleteProduct(state.items, action.payload.id)
+            };
 
         case Types.UPDATE_PRODUCT:
-            const index = findProductIndexById(state, action.payload.product.id);
-            state[index] = action.payload.product;
+            const index = findProductIndexById(state.items, action.payload.product.id);
+            const newItems = [...state.items];
+            if (index !== -1) {
+                newItems[index] = action.payload.product;
+            }
 
-            return { ...state };
+            return {
+                ...state,
+                items: newItems
+            };
 
         default:
             return state;
     }
 };
+
+export default productReducer;
+

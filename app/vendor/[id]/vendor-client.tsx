@@ -24,7 +24,7 @@ interface VendorClientProps {
 export default function VendorClient({ vendorId }: VendorClientProps) {
     const dispatch = useDispatch();
     const searchParams = useSearchParams();
-    const searchTerm = searchParams.get('search') || undefined;
+    const searchTerm = searchParams.get('search') || '';
     
     const products = useSelector((state: any) => state.products);
     const productFilters = useSelector((state: any) => state.productFilters);

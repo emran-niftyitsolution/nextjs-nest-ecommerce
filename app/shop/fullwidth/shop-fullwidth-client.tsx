@@ -15,7 +15,7 @@ import { fetchProduct } from "../../../redux/action/product";
 export default function ShopFullwidthClient() {
     const dispatch = useDispatch();
     const searchParams = useSearchParams();
-    const searchTerm = searchParams.get('search') || undefined;
+    const searchTerm = searchParams.get('search') || '';
     
     const products = useSelector((state: any) => state.products);
     const productFilters = useSelector((state: any) => state.productFilters);

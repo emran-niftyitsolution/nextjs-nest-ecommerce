@@ -2,13 +2,28 @@ import * as Types from "../constants/actionTypes";
 import { deleteProduct, findProductIndexById } from "../../util/util";
 import storage from "../../util/localStorage";
 
-const initialState = {
+interface Product {
+    id: number | string;
+    [key: string]: any;
+}
+
+interface CompareState {
+    modal: boolean;
+    items: Product[];
+}
+
+interface CompareAction {
+    type: string;
+    payload?: any;
+}
+
+const initialState: CompareState = {
     modal: false,
     items: [],
 };
 
-export default (state = initialState, action) => {
-    let index = null;
+const compareReducer = (state = initialState, action: CompareAction): CompareState => {
+    let index: number | null = null;
 
     switch (action.type) {
         case Types.OPEN_COMPARE:
@@ -63,3 +78,6 @@ export default (state = initialState, action) => {
             return state;
     }
 };
+
+export default compareReducer;
+
