@@ -37,7 +37,7 @@ export default function ComparePage() {
                                                 "buy",
                                                 " ",
                                             ]}
-                                            deleteFromCompare={(id: string) => {
+                                            deleteFromCompare={(id: string | number) => {
                                                 dispatch(deleteFromCompare(id) as any);
                                             }}
                                         />

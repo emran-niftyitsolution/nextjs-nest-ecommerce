@@ -11,7 +11,7 @@ interface Product {
     price: number;
     oldPrice?: number;
     discount: {
-        banner: string;
+        banner?: string;
     };
     [key: string]: any;
 }

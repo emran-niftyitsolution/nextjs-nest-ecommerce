@@ -11,13 +11,13 @@ import Related from "../sliders/Related";
 import Trending from "../sliders/Trending";
 
 interface Product {
-    id: number | string;
+    id?: number | string;
     featured?: boolean;
     trending?: boolean;
     totalSell?: number;
     created?: string | number;
-    discount: {
-        isActive: boolean;
+    discount?: {
+        isActive?: boolean;
     };
     [key: string]: any;
 }
@@ -48,9 +48,9 @@ const FetchSlider: React.FC<FetchSliderProps> = ({ productFilters }) => {
     const fetchProducts = async () => {
 
         // With Category
-        const allProducts: Product[] = await fetchByCatagory("/static/product.json", {
+        const allProducts: Product[] = (await fetchByCatagory("/static/product.json", {
             category: productFilters.category,
-        });
+        })) || [];
 
         // Without Category
         // const request = await fetch(`${server}/static/product.json`);
@@ -74,7 +74,7 @@ const FetchSlider: React.FC<FetchSliderProps> = ({ productFilters }) => {
 
         // Discount
         const discountProduct = allProducts.filter(
-            (item) => item.discount.isActive
+            (item) => item.discount?.isActive
         );
 
         setFeatured(featuredProducts);
@@ -87,12 +87,12 @@ const FetchSlider: React.FC<FetchSliderProps> = ({ productFilters }) => {
 
     return (
         <>
-            <Trending trending={trending} />
-            <Featured featured={featured} />
-            <BestSeller bestSeller={bestSeller} />
-            <NewArrival newArrival={newArrival} />
-            <Discount discount={discount} />
-            <Related related={related} />
+            <Trending products={trending} />
+            <Featured products={featured} />
+            <BestSeller />
+            <NewArrival products={newArrival} />
+            <Discount />
+            <Related />
         </>
     );
 };

@@ -285,7 +285,7 @@ export default function CheckoutPage() {
                                 </div>
                                 <div className="form-group mb-30">
                                     <textarea
-                                        rows="5"
+                                        rows={5}
                                         placeholder="Order notes (optional)"
                                         name="ordernote"
                                     ></textarea>

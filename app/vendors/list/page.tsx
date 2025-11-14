@@ -15,7 +15,7 @@ interface Vendor {
 
 export default function VendorsListPage() {
     return (
-        <Layout pageclassName="pageclass" parent="Home" child="Stores">
+        <Layout parent="Home" sub="Stores">
             <div className="page-content pt-50">
                 <div className="container">
                     <div className="archive-header-2 text-center">

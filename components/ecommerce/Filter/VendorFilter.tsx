@@ -8,8 +8,8 @@ import CheckBox from "./Checkbox";
 
 interface VendorItem {
     value: string;
-    checked?: boolean;
-    name?: string;
+    checked: boolean;
+    name: string;
 }
 
 interface VendorFilterProps {
@@ -19,15 +19,15 @@ interface VendorFilterProps {
 const VendorFilter: React.FC<VendorFilterProps> = ({ updateProductFilters }) => {
     const [sizes, setSizeCheckbox] = useState<VendorItem[]>(
         [
-            { value: "NestFood" },
-            { value: "stouffer" },
-            { value: "starKist" },
-            { value: "aldi" },
-            { value: "adidas" },
-            { value: "Costco" },
-            { value: "Harris" },
-            { value: "iSnack" },
-            { value: "Burbe" }
+            { value: "NestFood", name: "NestFood", checked: false },
+            { value: "stouffer", name: "stouffer", checked: false },
+            { value: "starKist", name: "starKist", checked: false },
+            { value: "aldi", name: "aldi", checked: false },
+            { value: "adidas", name: "adidas", checked: false },
+            { value: "Costco", name: "Costco", checked: false },
+            { value: "Harris", name: "Harris", checked: false },
+            { value: "iSnack", name: "iSnack", checked: false },
+            { value: "Burbe", name: "Burbe", checked: false }
         ]
     );
 

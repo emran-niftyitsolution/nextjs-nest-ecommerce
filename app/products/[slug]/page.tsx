@@ -7,11 +7,15 @@ import { findProductIndex } from "../../../util/util";
 interface Product {
   title: string;
   slug: string;
-  id: string;
+  id: string | number;
   price: number;
   oldPrice?: number;
   images: Array<{ img: string }>;
   gallery?: Array<{ thumb: string }>;
+  discount: {
+    isActive: boolean;
+    percentage: number;
+  };
   [key: string]: any;
 }
 

@@ -6,8 +6,13 @@ import Deals1 from "../elements/Deals1";
 
 interface Product {
     id: number | string;
+    slug: string;
+    title: string;
+    price: number;
+    oldPrice?: number;
     discount: {
         isActive: boolean;
+        banner?: string;
     };
     [key: string]: any;
 }

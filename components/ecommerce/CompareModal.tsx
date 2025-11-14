@@ -7,6 +7,9 @@ import CompareTable from "./CompareTable";
 
 interface CompareItem {
     id: number | string;
+    title: string;
+    price: number;
+    images: Array<{ img: string }>;
     [key: string]: any;
 }
 

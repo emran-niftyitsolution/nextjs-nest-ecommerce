@@ -21,6 +21,7 @@ interface Product {
     oldPrice?: number;
     desc?: string;
     images: Array<{ img: string }>;
+    gallery?: Array<{ thumb: string }>;
     variations?: string[];
     discount: {
         isActive: boolean;

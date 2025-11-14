@@ -8,8 +8,8 @@ import CheckBox from "./Checkbox";
 
 interface SizeItem {
     value: string;
-    checked?: boolean;
-    name?: string;
+    checked: boolean;
+    name: string;
 }
 
 interface ConditionFilterProps {
@@ -18,9 +18,9 @@ interface ConditionFilterProps {
 
 const ContitionFilter: React.FC<ConditionFilterProps> = ({ updateProductFilters }) => {
     const [sizes, setSizeCheckbox] = useState<SizeItem[]>([
-        { value: "new" },
-        { value: "refurbished " },
-        { value: "used" },
+        { value: "new", name: "new", checked: false },
+        { value: "refurbished", name: "refurbished", checked: false },
+        { value: "used", name: "used", checked: false },
     ]);
 
     const searchParams = useSearchParams();

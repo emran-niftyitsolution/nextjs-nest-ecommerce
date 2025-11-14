@@ -1,5 +1,11 @@
+interface VendorData {
+    id: number;
+    title: string;
+    img: string;
+    desc: string;
+}
 
- const data = [
+const data: VendorData[] = [
     {
         id: 1,
         title: "Car Toys",
@@ -75,3 +81,4 @@
 ];
 
 export default data;
+
