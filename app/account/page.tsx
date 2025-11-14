@@ -67,7 +67,7 @@ export default function AccountPage() {
                                                 </a>
                                             </li>
                                             <li className="nav-item">
-                                                <Link href="/shop-wishlist" className="nav-link">
+                                                <Link href="/shop/wishlist" className="nav-link">
                                                     <i className="fi-rs-heart mr-10"></i>Wishlist
                                                 </Link>
                                             </li>

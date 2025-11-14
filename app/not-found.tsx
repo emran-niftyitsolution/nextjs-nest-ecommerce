@@ -11,7 +11,7 @@ export default function NotFound() {
               <div className="col-xl-8 col-lg-10 col-md-12 m-auto text-center">
                 <p className="mb-20">
                   <img
-                    src="assets/imgs/page/page-404.png"
+                    src="/assets/imgs/page/page-404.png"
                     alt="nest"
                     className="hover-up"
                   />

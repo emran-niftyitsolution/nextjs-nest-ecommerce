@@ -1,0 +1,27 @@
+import Link from "next/link";
+
+interface BreadcrumbProps {
+    parent?: string;
+    sub?: string;
+    subChild?: string;
+    noBreadcrumb?: string;
+}
+
+const Breadcrumb: React.FC<BreadcrumbProps> = ({ parent, sub, subChild, noBreadcrumb }) => {
+    return (
+        <>
+            <div className={`page-header breadcrumb-wrap ${noBreadcrumb}`}>
+                <div className="container">
+                    <div className="breadcrumb">
+                        <Link href="/">{parent}</Link>
+                        <span></span> {sub}
+                        <span></span> {subChild}
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default Breadcrumb;
+
